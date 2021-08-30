@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite guice-stage="DEVELOPMENT" name="Failed suite [Suite]">
+  <test name="Test(failed)">
+    <classes>
+      <class name="TestCases.Testcases">
+        <methods>
+          <include name="verifyData"/>
+          <include name="verifylabel"/>
+          <include name="poup"/>
+          <include name="redirecttopayment"/>
+          <include name="tearDown"/>
+          <include name="buynowbutton"/>
+          <include name="verifyincorrectpin"/>
+          <include name="veriyCancelbutton"/>
+          <include name="transcationConfirmation"/>
+          <include name="promoCode"/>
+          <include name="debitCardDetails"/>
+          <include name="verifyTitle"/>
+          <include name="paymentMethod"/>
+          <include name="getUrl"/>
+          <include name="tearup"/>
+          <include name="verifyTotal"/>
+          <include name="cardinput"/>
+          <include name="verifycorrectpin"/>
+        </methods>
+      </class> <!-- TestCases.Testcases -->
+    </classes>
+  </test> <!-- Test(failed) -->
+</suite> <!-- Failed suite [Suite] -->

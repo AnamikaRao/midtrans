@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite guice-stage="DEVELOPMENT" name="Failed suite [REGRESSION-TEST]">
+  <test thread-count="5" name="test(failed)">
+    <groups>
+      <run>
+        <include name="regression"/>
+      </run>
+    </groups>
+    <classes>
+      <class name="TestCases.Testcases">
+        <methods>
+          <include name="verifylabel"/>
+          <include name="verifyTitle"/>
+          <include name="poup"/>
+          <include name="buynowbutton"/>
+          <include name="verifyTotal"/>
+          <include name="addData"/>
+        </methods>
+      </class> <!-- TestCases.Testcases -->
+    </classes>
+  </test> <!-- test(failed) -->
+</suite> <!-- Failed suite [REGRESSION-TEST] -->

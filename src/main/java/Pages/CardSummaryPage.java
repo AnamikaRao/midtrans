@@ -20,7 +20,7 @@ public class CardSummaryPage extends HomePage {
     }
 
     @FindBy(xpath = "//p[@id='txn_amount']")
-    org.openqa.selenium.WebElement totalPayblAmount;
+    WebElement totalPayblAmount;
 
     public WebElement payblAmount() {
         return totalPayblAmount;
