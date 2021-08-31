@@ -106,6 +106,7 @@ public void tearDown()
     public void poup() {
         addData();
         homePage.checkoutbutton().click();
+        baseMethods.holdExcution(5);
         driver.switchTo().frame(0);
         Assert.assertEquals(homePage.summarytitle().getText(), "Order Summary");
     }
@@ -155,18 +156,20 @@ public void tearDown()
     @Test(groups={"regression"})
     public void promoCode() throws InterruptedException {
         debitCardDetails();
-
+        baseMethods.holdExcution(5);
+        
+        
         if (!cardDetails.DebitCradTitle().isEnabled()) {
             cardDetails.DebitCradTitle().click();
         }
         Assert.assertEquals(cardDetails.Prmoamount().getText(), "18,000");
 
-        baseMethods.implictwait();
+        baseMethods.holdExcution(10);;
         cardDetails.RupiahPromocode2().click();
         Assert.assertEquals(cardDetails.Prmoamount().getText(), "19,990");
-        baseMethods.implictwait();
+        baseMethods.holdExcution(10);
         cardDetails.MasterCradpromocode3().click();
-        baseMethods.implictwait();
+        baseMethods.holdExcution(10);
         Assert.assertEquals(cardDetails.Prmoamount().getText(), "19,000");
   }
 
@@ -205,7 +208,8 @@ public void tearDown()
         driver.switchTo().frame(0);
         cardSummaryPage.cardPindetail(Setup.properties.getProperty("correctpin"));
         cardSummaryPage.cardOkbuttondetails().click();
-        baseMethods.holdExcution(2);
+        baseMethods.holdExcution(5);
+        driver.switchTo().defaultContent();
         Assert.assertEquals(cardSummaryPage.PurchaseConfirmation().getText(),"Thank you for your purchase.");
     }
 
@@ -217,8 +221,10 @@ public void tearDown()
         driver.switchTo().frame(0);
         cardSummaryPage.cardPindetail(Setup.properties.getProperty("incorrectpin"));
         cardSummaryPage.cardOkbuttondetails().click();
-        baseMethods.holdExcution(5);
+        driver.switchTo().window(driver.getWindowHandle());
+
         driver.switchTo().frame(0);
+        baseMethods.holdExcution(5);
         Assert.assertEquals(cardSummaryPage.PurchaseRejected().getText(),"Your card got declined by the bank");
     }
 
@@ -231,9 +237,11 @@ public void tearDown()
         baseMethods.holdExcution(5);
         cardSummaryPage.cardCancelbutton().click();
         baseMethods.holdExcution(5);
-       driver.switchTo().frame(0);
-       baseMethods.holdExcution(5);
-        Assert.assertEquals(cardSummaryPage.Purchasecancelled().getText(),"Transaction failed");
+        driver.switchTo().window(driver.getWindowHandle());
+
+        driver.switchTo().frame(0);
+        baseMethods.holdExcution(5);
+       Assert.assertEquals(cardSummaryPage.Purchasecancelled().getText(),"Transaction failed");
 
     }
 
